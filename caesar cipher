@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int i;
+    char s[50], c;
+
+    printf("plaintext :\n");
+    fgets(s, sizeof(s), stdin);
+    int n = strlen(s);
+
+    for (i = 0; i < n; i++) {
+        c = s[i];
+        if (c >= 'a' && c <= 'z') {
+            c = c + 3;
+            if (c > 'z') {
+                c = c - 'z' + 'a' - 1;
+            }
+            s[i] = c;
+
+        } else if (c >= 'A' && c <= 'Z') {
+            c = c + 3;
+            if (c > 'Z') {
+                c = c - 'Z' + 'A' - 1;
+            }
+            s[i] = c;
+        }
+    }
+
+    printf(" message: %s\n", s);
+
+    return 0;
+}
